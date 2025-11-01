@@ -79,11 +79,11 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', 'SEU_PIXEL_ID'); // <-- TROQUE PELO SEU PIXEL ID
+        fbq('init', '1302331574814457'); // <-- TROQUE PELO SEU PIXEL ID
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+    src="https://www.facebook.com/tr?id=1302331574814457&ev=PageView&noscript=1" /></noscript>
     </head>
 <body>
     <div class="container-center bg-[#0a0a0a]" style="height: 100vh;">
@@ -156,7 +156,18 @@
                 
                 <div id="payment-qr" class="animate-slideIn hidden">
                     </div>
-            </div>
+
+                <div id="payment-success" class="animate-slideIn hidden text-center">
+                    <svg class="mx-auto mb-4 w-16 h-16 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">Pagamento Aprovado!</h2>
+                    <p class="text-gray-600 mt-2">Seja bem-vindo(a)! Clique no botão abaixo para acessar seu conteúdo exclusivo.</p>
+                    <div class="w-full flex justify-center mt-6">
+                        <a id="access-button" href="#" target="_blank" class="w-full max-w-[500px] flex items-center justify-center gap-2 bg-[#16A349] text-white py-3 px-4 rounded-lg hover:bg-[#16803C] transition-colors">
+                            Acessar o Grupo Agora
+                        </a>
+                    </div>
+                </div>
+                </div>
         </div>
     </div>
     
@@ -401,11 +412,24 @@
                             try {
                                 const statusResponse = await fetch(`${backendUrl}/check-status/${paymentId}`);
                                 const statusData = await statusResponse.json();
+
                                 if (statusData.status === 'paid') {
-                                    clearInterval(statusInterval);
-                                    window.location.href = linkDeDestino;
+                                    clearInterval(statusInterval); 
+
+                                    document.getElementById('payment-qr').classList.add('hidden');
+                                    document.getElementById('payment-success').classList.remove('hidden');
+
+                                    console.log("Disparando Pixel de Compra!");
+                                    if (typeof fbq === 'function') {
+                                        fbq('track', 'Purchase', {currency: "BRL", value: 19.99});
+                                    }
+                                    
+                                    document.getElementById('access-button').href = linkDeDestino;
                                 }
-                            } catch (err) { console.error("Erro ao verificar status:", err); }
+                            } catch (err) { 
+                                console.error("Erro ao verificar status:", err);
+                                clearInterval(statusInterval);
+                            }
                         }, 3000);
                         
                     } catch (error) {
