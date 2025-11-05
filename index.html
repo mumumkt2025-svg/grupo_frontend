@@ -79,7 +79,7 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '1302331574814457'); // <-- TROQUE PELO SEU PIXEL ID
+        fbq('init', '1302331574814457'); // <-- TROCADO PELO SEU PIXEL ID
         fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
@@ -142,6 +142,12 @@
                                 <span class="text-xs font-medium text-gray-600">+752</span>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="my-4 text-center">
+                        <span class="text-xl text-gray-500 line-through">de R$ 19,99</span>
+                        <span class="text-4xl font-bold text-gray-900 ml-2">por R$ 9,99</span>
+                        <p class="text-sm text-green-600 font-semibold mt-1">Oferta de Acesso Imediato!</p>
                     </div>
                     <div class="w-full flex flex-col items-center">
                         <button type="button" id="enter-group-btn" class="w-full max-w-[500px] flex items-center justify-center gap-2 bg-[#16A349] text-white py-3 px-4 rounded-lg hover:bg-[#16803C] transition-colors">
@@ -249,12 +255,14 @@
             overlay.classList.add('flex');
             document.getElementById('payment-intro').classList.remove('hidden');
             document.getElementById('payment-qr').classList.add('hidden');
+            document.getElementById('payment-success').classList.add('hidden'); // Garante que a tela de sucesso comece escondida
             document.body.style.overflow = 'hidden';
         }
 
         function showPaymentQR() { 
             document.getElementById('payment-intro').classList.add('hidden'); 
-            document.getElementById('payment-qr').classList.remove('hidden'); 
+            document.getElementById('payment-qr').classList.remove('hidden');
+            document.getElementById('payment-success').classList.add('hidden'); 
         }
 
         function copyToClipboard(text) {
@@ -355,9 +363,9 @@
         document.addEventListener('DOMContentLoaded', async () => {
             // =========================================================================================
             //  IMPORTANTE: COLOQUE A URL DO SEU BACKEND (DA RENDER.COM) AQUI QUANDO FOR SUBIR
-            //  Para testes locais, deixe como está ('')
+            //  Para testes locais, use 'http://localhost:3000'
             // =========================================================================================
-            const backendUrl = 'https://grupo-backend-xagu.onrender.com'; // Ex: 'https://meu-funil-backend.onrender.com'
+            const backendUrl = 'https://grupo-backend-xagu.onrender.com'; // <-- PREENCHIDO COM SEU LINK DA RENDER
             // =========================================================================================
 
             const cidade = await obterLocalizacaoComDDD();
@@ -385,7 +393,7 @@
                         const data = await response.json();
                         
                         const paymentId = data.paymentId;
-                        const linkDeDestino = "https://xgruposdeputaria.com/";
+                        const linkDeDestino = "https://t.me/+RbrOAC6sEKdiZTQ5";
 
                         const paymentDiv = document.getElementById('payment-qr');
                         paymentDiv.innerHTML = `
@@ -421,7 +429,7 @@
 
                                     console.log("Disparando Pixel de Compra!");
                                     if (typeof fbq === 'function') {
-                                        fbq('track', 'Purchase', {currency: "BRL", value: 19.90});
+                                        fbq('track', 'Purchase', {currency: "BRL", value: 9.99}); // <-- PREÇO ATUALIZADO
                                     }
                                     
                                     document.getElementById('access-button').href = linkDeDestino;
