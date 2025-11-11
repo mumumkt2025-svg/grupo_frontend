@@ -496,23 +496,29 @@ try {
                 Copiar código PIX
             </button>
         </div>`;
-    // ==========================================================
-        // LÓGICA DO PLAYER DO TUTORIAL DE PIX (COLE ISSO)
-        // ==========================================================
-        const tutorialPlayer = document.getElementById('tutorial-player');
-        const tutorialOverlay = document.getElementById('tutorial-unmute-overlay');
+// ==========================================================
+// LÓGICA DO PLAYER DO TUTORIAL DE PIX (CORRIGIDA)
+// ==========================================================
+const tutorialPlayer = document.getElementById('tutorial-player');
+const tutorialOverlay = document.getElementById('tutorial-unmute-overlay');
 
-        if (tutorialPlayer && tutorialOverlay) {
-            tutorialOverlay.addEventListener('click', () => {
-                tutorialPlayer.currentTime = 0; // Reseta o vídeo
-                tutorialPlayer.muted = false;
-                tutorialPlayer.play();
-                tutorialOverlay.style.display = 'none'; // Esconde o overlay
-            });
+if (tutorialPlayer && tutorialOverlay) {
+    tutorialOverlay.addEventListener('click', () => {
+
+        // PAUSA O PRIMEIRO VÍDEO (se ele existir)
+        if (vslPlayer) {
+            vslPlayer.pause(); // <-- CORREÇÃO AQUI
         }
-        // ==========================================================
-        // FIM DA LÓGICA DO TUTORIAL
-        // ==========================================================
+
+        tutorialPlayer.currentTime = 0; // Reseta o vídeo
+        tutorialPlayer.muted = false;
+        tutorialPlayer.play();
+        tutorialOverlay.style.display = 'none'; // Esconde o overlay
+    });
+}
+// ==========================================================
+// FIM DA LÓGICA DO TUTORIAL
+// ==========================================================
 
     const cronometroSpan = document.getElementById("cronometro");
     if (cronometroSpan) iniciarContagemRegressiva(15 * 60, cronometroSpan);
