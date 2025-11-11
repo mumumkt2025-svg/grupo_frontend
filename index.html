@@ -1,14 +1,8 @@
 <!DOCTYPE html>
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
 <html lang="pt-BR" style="--vh: 9px;">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="format-detection" content="telephone=no">
     <title>🔥CLUBE SECRETO - WhatsApp Oficial</title>
@@ -16,7 +10,6 @@
     <script async="" src="js/fbevents.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -26,14 +19,13 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '4273499272897363');
+    fbq('init', '25903937665861280');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=4273499272897363&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-
+    src="https://www.facebook.com/tr?id=25903937665861280&ev=PageView&noscript=1" /></noscript>
     <style>
+        /* [SEU CSS TODO AQUI - NÃO MUDA NADA] */
         body, html {
             margin: 0; padding: 0; height: 100%; overflow: hidden;
             touch-action: manipulation; background-color: #0a0a0a;
@@ -122,7 +114,7 @@
         <div id="chatArea" class="flex-1 overflow-y-auto px-2 py-4 space-y-3 hide-scrollbar" style="background-image: url('images/fundo-dark.svg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #0a0a0a;">
             <div id="scroll-anchor"></div>
         </div>
-  
+    
         <div class="px-2 py-1.5 flex items-center gap-2 bg-[#101010]">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[#f9f9f9]"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
             <div class="flex-1 rounded-lg px-3 py-1.5 bg-[#171717]">
@@ -136,8 +128,26 @@
     <div id="payment-overlay" class="fixed inset-0 bg-black/80 backdrop-blur-[2px] z-40 hidden flex justify-center items-center">
         <div id="payment-panel" class="fixed bottom-0 left-0 right-0 z-50 w-full bg-white shadow-lg overflow-auto max-h-[100vh]">
             <div class="p-4 sm:p-6 relative overflow-hidden">
-          
+            
                 <div id="payment-intro" class="flex flex-col items-center gap-5 sm:gap-6 animate-fadeIn">
+                    <div class="vsl-container relative w-full aspect-video bg-black rounded-lg overflow-hidden mb-2">
+    
+    <video 
+        id="vsl-player" 
+        class="w-full h-full"
+        src="https://pub-9ad786fb39ec4b43b2905a55edcb38d9.r2.dev/1110(4).mp4" 
+        autoplay 
+        muted 
+        loop 
+        playsinline>
+    </video>
+
+    <div id="vsl-unmute-overlay" class="absolute top-0 left-0 w-full h-full bg-black/60 backdrop-blur-[2px] cursor-pointer z-10 flex justify-center items-center">
+        <svg class="w-20 h-20 text-white/80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+        </svg>
+    </div>
+</div>
                     <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-gray-200">
                         <img src="images/IMG-20240711-00350743535.webp" alt="🔥CLUBE SECRETO" class="w-full h-full object-cover">
                     </div>
@@ -203,6 +213,14 @@
             { id: 5, phone: "+55 {{DDD}} 94096-7607", content: "Genteee, o Paulo que entrou ontem me comeu tao bem", time: getBrasiliaTime(), avatar: "https://midia.jdfnu287h7dujn2jndjsifd.com/1641853871190.webp" }
         ];
         // ---- FIM: PERSONALIZE A CONVERSA AQUI ----
+
+        // --- FUNÇÃO PARA LER COOKIES (ESSENCIAL) ---
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return null;
+        }
 
         async function obterLocalizacaoComDDD() {
             try {
@@ -288,6 +306,7 @@
             const button = document.getElementById('copy-pix-btn');
             button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg> Copiado!`;
             
+            // Scripts da Exib.io
             const goal3 = "SEU_GOAL_ID_AQUI";
             const goal4 = "SEU_GOAL_ID_AQUI";
             const exoPixel3 = document.createElement('script');
@@ -374,7 +393,24 @@
 
         // --- LÓGICA PRINCIPAL - DOMContentLoaded ---
         document.addEventListener('DOMContentLoaded', async () => {
-            const backendUrl = 'https://grupo-backend-xagu.onrender.com';
+// ==========================================================
+            // LÓGICA DO VSL PLAYER (VERSÃO CORRIGIDA)
+            // ==========================================================
+            const vslPlayer = document.getElementById('vsl-player');
+            const vslOverlay = document.getElementById('vsl-unmute-overlay');
+
+            if (vslPlayer && vslOverlay) {
+                vslOverlay.addEventListener('click', () => {
+                    vslPlayer.currentTime = 0; // <-- AQUI A MÁGICA
+                    vslPlayer.muted = false;
+                    vslPlayer.play();
+                    vslOverlay.style.display = 'none'; // Esconde o overlay
+                });
+            }
+            // ==========================================================
+            // FIM DA LÓGICA DO VSL
+            // ==========================================================
+            const backendUrl = 'https://gruposecreto-backend.onrender.com';
 
             const cidade = await obterLocalizacaoComDDD();
             messages.forEach(m => { if (m.phone.includes("{{DDD}}")) m.phone = m.phone.replace("{{DDD}}", dddUsuario); });
@@ -394,71 +430,116 @@
                     event.preventDefault();
                     botao.disabled = true;
                     botao.innerHTML = 'Gerando PIX...';
+                    
+                    // 1. LER OS COOKIES DE ATRIBUIÇÃO DO FACEBOOK
+                    const fbp = getCookie('_fbp');
+                    const fbc = getCookie('_fbc');
 
-                    // MARCA AddToCart NO FACEBOOK PIXEL
+                    // 2. DISPARAR O AddToCart (BROWSER)
+                    // Adicionamos de volta, já que a Utmify foi removida
                     if (typeof fbq === 'function') {
                         fbq('track', 'AddToCart', {
                             currency: "BRL",
-                            value: 9.99
+                            value: 19.99
                         });
                     }
+                    
+try {
+    // 3. ENVIAR OS COOKIES PARA O BACKEND
+    const response = await fetch(`${backendUrl}/gerar-pix`, { 
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fbp: fbp,
+            fbc: fbc
+        })
+    });
 
-                    try {
-                        const response = await fetch(`${backendUrl}/gerar-pix`, { method: 'POST' });
-if (!response.ok) throw new Error('Falha na comunicação com o servidor.');
-const data = await response.json();
+    if (!response.ok) throw new Error('Falha na comunicação com o servidor.');
+    const data = await response.json();
 
-const paymentId = data.paymentId;
-const linkDeDestino = "https://xgruposdeputaria.com/";
+    const paymentId = data.paymentId;
+    const linkDeDestino = "https://xgruposdeputaria.com/";
 
-const paymentDiv = document.getElementById('payment-qr');
-paymentDiv.innerHTML = `
-    <div class="mb-4 sm:mb-6">
-        <h2 class="titulo-pix">Pagamento PIX</h2>
-        <p class="subtitulo-cronometro">Pague seu Pix dentro de <span id="cronometro">15:00</span> para liberar o acesso.</p>
-        <div class="loading-wrapper"><div class="loading-container"><span class="loading-text">Aguardando pagamento</span><div class="loading-icon"></div></div></div>
-        <div class="flex justify-center my-4">
-            <img src="${data.qrCodeBase64}" alt="QR Code PIX" class="w-48 h-48 border">
-        </div>
-        <textarea class="w-full p-2 border rounded bg-gray-100 text-sm" readonly>${data.copiaECola}</textarea>
-        <button id="copy-pix-btn" onclick="copyToClipboard('${data.copiaECola}')" class="w-full mt-2 flex items-center justify-center gap-2 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-            Copiar código PIX
-        </button>
-    </div>`;
+    const paymentDiv = document.getElementById('payment-qr');
+    paymentDiv.innerHTML = `
+    <div class="vsl-container relative w-full aspect-video bg-black rounded-lg overflow-hidden mb-4">
 
-const cronometroSpan = document.getElementById("cronometro");
-if (cronometroSpan) iniciarContagemRegressiva(15 * 60, cronometroSpan);
+    <video 
+        id="tutorial-player" 
+        class="w-full h-full"
+        src="https://pub-9ad786fb39ec4b43b2905a55edcb38d9.r2.dev/tutorial-pix.mp4" 
+        autoplay 
+        muted 
+        loop 
+        playsinline>
+    </video>
 
-showPaymentQR();
+    <div id="tutorial-unmute-overlay" class="absolute top-0 left-0 w-full h-full bg-black/60 backdrop-blur-[2px] cursor-pointer z-10 flex justify-center items-center">
+        <svg class="w-20 h-20 text-white/80" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm14.024-.983a1.125 1.125 0 010 1.966l-5.603 3.113A1.125 1.125 0 019 15.113V8.887c0-.857.921-1.4 1.671-.983l5.603 3.113z" clip-rule="evenodd" />
+        </svg>
+    </div>
+</div>
+        <div class="mb-4 sm:mb-6">
+            <h2 class="titulo-pix">Pagamento PIX</h2>
+            <p class="subtitulo-cronometro">Pague seu Pix dentro de <span id="cronometro">15:00</span> para liberar o acesso.</p>
+            <div class="loading-wrapper"><div class="loading-container"><span class="loading-text">Aguardando pagamento</span><div class="loading-icon"></div></div></div>
+            <div class="flex justify-center my-4">
+                <img src="${data.qrCodeBase64}" alt="QR Code PIX" class="w-48 h-48 border">
+            </div>
+            <textarea class="w-full p-2 border rounded bg-gray-100 text-sm" readonly>${data.copiaECola}</textarea>
+            <button id="copy-pix-btn" onclick="copyToClipboard('${data.copiaECola}')" class="w-full mt-2 flex items-center justify-center gap-2 bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+                Copiar código PIX
+            </button>
+        </div>`;
+    // ==========================================================
+        // LÓGICA DO PLAYER DO TUTORIAL DE PIX (COLE ISSO)
+        // ==========================================================
+        const tutorialPlayer = document.getElementById('tutorial-player');
+        const tutorialOverlay = document.getElementById('tutorial-unmute-overlay');
 
-const statusInterval = setInterval(async () => {
-    try {
-        const statusResponse = await fetch(`${backendUrl}/check-status/${paymentId}`);
-        const statusData = await statusResponse.json();
-
-        if (statusData.status === 'paid') {
-            clearInterval(statusInterval); 
-
-            document.getElementById('payment-qr').classList.add('hidden');
-            document.getElementById('payment-success').classList.remove('hidden');
-
-            // MARCA PURCHASE NO FACEBOOK PIXEL
-            console.log("Disparando Pixel de Compra!");
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {
-                    currency: "BRL", 
-                    value: 9.99
-                });
-            }
-            
-            document.getElementById('access-button').href = linkDeDestino;
+        if (tutorialPlayer && tutorialOverlay) {
+            tutorialOverlay.addEventListener('click', () => {
+                tutorialPlayer.currentTime = 0; // Reseta o vídeo
+                tutorialPlayer.muted = false;
+                tutorialPlayer.play();
+                tutorialOverlay.style.display = 'none'; // Esconde o overlay
+            });
         }
-    } catch (err) { 
-        console.error("Erro ao verificar status:", err);
-        clearInterval(statusInterval);
-    }
-}, 3000);
+        // ==========================================================
+        // FIM DA LÓGICA DO TUTORIAL
+        // ==========================================================
+
+    const cronometroSpan = document.getElementById("cronometro");
+    if (cronometroSpan) iniciarContagemRegressiva(15 * 60, cronometroSpan);
+
+    showPaymentQR();
+
+    const statusInterval = setInterval(async () => {
+        try {
+            const statusResponse = await fetch(`${backendUrl}/check-status/${paymentId}`);
+            const statusData = await statusResponse.json();
+
+            if (statusData.status === 'paid') {
+                clearInterval(statusInterval); 
+
+                document.getElementById('payment-qr').classList.add('hidden');
+                document.getElementById('payment-success').classList.remove('hidden');
+
+                // O 'Purchase' FOI REMOVIDO DAQUI
+                // O backend (server.js) vai cuidar disso 100%
+                
+                document.getElementById('access-button').href = linkDeDestino;
+            }
+        } catch (err) { 
+            console.error("Erro ao verificar status:", err);
+            clearInterval(statusInterval);
+        }
+    }, 3000);
 
 } catch (error) {
     console.error('Erro:', error);
@@ -467,7 +548,7 @@ const statusInterval = setInterval(async () => {
     botao.innerHTML = 'Entrar no Grupo';
 }
 
-// Dispara pixels de marketing
+// Dispara pixels de marketing (Exib.io, etc)
 const goal1 = "SEU_GOAL_ID_AQUI";
 const goal2 = "SEU_GOAL_ID_AQUI";
 const exoPixel1 = document.createElement('script');
